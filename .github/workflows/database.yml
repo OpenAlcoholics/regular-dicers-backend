@@ -1,0 +1,19 @@
+name: Database
+
+on: [push]
+
+jobs:
+  database_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install postgres dependencies
+        run: sudo apt-get install -y libpq-dev
+      - name: Install nightly
+        run: rustup update nightly
+      - name: install dependencies
+        run: cargo install diesel_cli --no-default-features --features "postgres"
+      - name: setup database
+        run: DATABASE_URL=${{ secrets.DATABASE_URL }} diesel setup
+      - name: provision database
+        run: DATABASE_URL=${{ secrets.DATABASE_URL }} diesel migration run

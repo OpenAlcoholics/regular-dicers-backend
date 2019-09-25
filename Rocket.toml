@@ -1,0 +1,15 @@
+[development]
+address = "0.0.0.0"
+[development.databases.primary_db]
+url = "postgres://postgres:password@localhost/regular_dicers_backend"
+
+[production]
+address = "0.0.0.0"
+port = 8000
+workers = 2
+keep_alive = 5
+log = "critical"
+secret_key = "q9frKRoQ1KN3/fWwHHA+jbHx6zvt/2lbh4Er1tk8CBM="
+
+[production.databases.primary_db]
+url = "postgres://postgres:password@localhost/regular_dicers_backend"

@@ -1,0 +1,21 @@
+[package]
+name = "regular-dicers-backend"
+version = "0.1.0"
+authors = ["Torben Carstens <github@carstens.tech>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0.104", features = ["derive"] }
+time = "0.2.2"
+juniper = { version = "0.14.2", features = ["expose-test-schema", "serde_json"] }
+rocket = { version = "0.4.2", features = [ "private-cookies" ], default-features = false }
+rocket_http = { version = "0.4.2", default-features = false }
+rocket_contrib = { version = "0.4.2", features = ["diesel_postgres_pool"], default-features = false }
+r2d2-diesel = "1.0.0"
+r2d2 = "0.8.6"
+diesel = { version = "1.4", features = ["postgres", "chrono"], default_features = false }
+chrono = { version = "0.4.9", features = ["serde"] }
+juniper_rocket = "0.5.2"
+rand = "0.7.2"
